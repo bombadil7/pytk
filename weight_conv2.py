@@ -6,7 +6,7 @@ def convert():
     kg = float(e1_val.get())
     g = 1000 * kg
     lb = kg / .453592
-    oz = g * 27
+    oz = kg * 27
     grams.delete("1.0", END)
     pounds.delete("1.0", END)
     ounces.delete("1.0", END)

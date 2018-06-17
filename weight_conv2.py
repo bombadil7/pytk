@@ -5,8 +5,9 @@ window = Tk()
 def convert():
     kg = float(e1_val.get())
     g = 1000 * kg
-    lb = kg / .453592
-    oz = g * 27
+# lb = kg / .453592
+    lb = kg * 2.20462
+    oz = kg * 35.274
     grams.delete("1.0", END)
     pounds.delete("1.0", END)
     ounces.delete("1.0", END)

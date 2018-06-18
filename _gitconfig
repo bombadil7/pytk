@@ -1,0 +1,34 @@
+[user]
+	email = andrei.kniazev@yorlabs.com
+	name = Andrei Kniazev
+[diff]
+    tool = gvimdiff
+[difftool "gvimdiff"]
+    cmd = "gvim -c 'set columns=250' -c 'wincmd =' -d" "$LOCAL" "$REMOTE"
+[difftool]
+    prompt = false
+[merge]
+	tool = gvimdiff
+[merge]
+	conflictstyle = diff3 
+[core]
+	autocrlf = true
+    editor = gvim  
+[alias]
+	last = log -1 HEAD
+	mylog = log --graph --oneline --decorate --date=relative --all --abbrev-commit
+	lg = !"git lg1-specific --all"
+    lg1 = !"git log --oneline"
+    lg2 = !"git lg2-specific --all"
+    lg3 = !"git lg3-specific --all"
+	lg4 = !"git lg1"
+
+    lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+    lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+
+    addall = add * > /dev/null
+    sh = show --pretty="" --name-only 
+	lol = log --graph --decorate --pretty=oneline --all --abbrev-commit
+[credential]
+	helper = wincred

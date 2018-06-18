@@ -3,8 +3,8 @@ from tkinter import ttk
 import matplotlib
 matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
-#from matplotlib.figure import Figure
-import matplotlib.pyplot as plt 
+from matplotlib.figure import Figure
+#import matplotlib.pyplot as plt 
 
 LARGE_FONT = ("Verdana", 12)
 
@@ -90,35 +90,28 @@ class PageThree(tk.Frame):
                 command = lambda: controller.show_frame(StartPage))
         button1.pack()
 
-
-        f = plt.figure()
-        a = f.add_subplot(111)
-        a = f.add_subplot(111)  # one by one and this is one
-        a.plot([1,2,3,4,5,6,7,8], [5,6,1,3,8,9,3,5])
-        print("created plot")
-"""
-        canvas = FigureCanvasTkAgg(f, self)
-        print("created canvas")
-        canvas.show()
-        print("showing canvas")
-        canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-
         f = Figure(figsize = (5,5), dpi = 100)
         a = f.add_subplot(111)  # one by one and this is one
         a.plot([1,2,3,4,5,6,7,8], [5,6,1,3,8,9,3,5])
 #        plt.show() # In normal operation
 
         canvas = FigureCanvasTkAgg(f, self)
-        canvas.show()
+        canvas.draw()
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
     
         toolbar = NavigationToolbar2TkAgg(canvas, self)
         toolbar.update()
         canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
- """       
 
-
-
+"""
+        f = plt.figure()
+        a = f.add_subplot(111)
+        a = f.add_subplot(111)  # one by one and this is one
+        a.plot([1,2,3,4,5,6,7,8], [5,6,1,3,8,9,3,5])
+        canvas = FigureCanvasTkAgg(f, self)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+"""
 app = SeaofBTCapp()
 app.mainloop()
